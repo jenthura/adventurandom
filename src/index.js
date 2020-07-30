@@ -1,11 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom'
+import { CharProvider } from './contexts/CharContext'
 import './index.css';
-import App from './App';
+import App from './components/App/App';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <CharProvider>
+        <App />
+      </CharProvider> 
+    </BrowserRouter> 
   </React.StrictMode>,
   document.getElementById('root')
 );
