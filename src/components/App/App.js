@@ -1,30 +1,32 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
-import CharList from '../../routes/Char/CharList';
+import StoryForm from '../StoryForm/StoryForm';
 import Header from '../Header/Header';
+import Main from '../Main/Main';
+import About from '../About/About';
+import Story from '../Story/Story';
+
 
 export default class App extends Component {
-  state = { hasError: false }
+  state = { 
+    hasError: false
+  }
+
+  handleClickBegin = () => {
+    console.log('Begin clicked')
+  }
 
   render() {
     return (
       <div className='App'>
-          <Switch>
-            <Route exact path={'/'} component={Header} />
-            <Route exact path={'/char'} component={CharList} />
-            {/* <Route
-              path={'/char/:id/attacks'}
-              component={Attacks}
-            />
-            <Route
-              path={'/char/:id/hitpoints'}
-              component={Hitpoints}
-            />
-            <Route
-              component={NotFoundPage}
-            /> */}
-          </Switch>
+        <Header/>
+        <Switch>
+          <Route exact path={'/'} onClickBegin={this.handleClickBegin} component={Main} />
+          <Route path={'/about'} component={About} />
+          <Route path={'/story-form'} component={StoryForm} />
+          <Route path={'/story'} component={Story} />
+        </Switch>
       </div>
     );
   }

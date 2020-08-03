@@ -1,0 +1,20 @@
+form {
+  display: table;
+}
+p {
+  display: table-row;
+  padding: 20px;
+}
+label {
+  display: table-cell;
+}
+input {
+  display: table-cell;
+}
+.fieldset {
+    width: 50%;
+}
+.form-buttons {
+    flex-direction: row;
+    justify-content: space-between;
+}
