@@ -8,10 +8,8 @@ const CharApiService = {
             (!res.ok)
               ? res.json().then(e => Promise.reject(e))
               : res.json()
-          )
+        )
     }
 }
 
 export default CharApiService;
-
-//API_ENDPOINT: 'http://localhost:8000', ex. http://localhost:8000/char/3

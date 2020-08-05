@@ -1,9 +1,9 @@
 import config from '../config'
 
-const MonsterApiService = {
+const LocaFlavorApiService = {
 
-    getMonster() {
-        return fetch(`${config.API_ENDPOINT}/monster`)
+    getLocaFlavor() {
+        return fetch(`${config.API_ENDPOINT}/location`)
         .then(res =>
             (!res.ok)
               ? res.json().then(e => Promise.reject(e))
@@ -12,4 +12,4 @@ const MonsterApiService = {
     }
 }
 
-export default MonsterApiService;
+export default LocaFlavorApiService;

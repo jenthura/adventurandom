@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import StoryForm from '../StoryForm/StoryForm';
 import Header from '../Header/Header';
@@ -21,12 +21,10 @@ export default class App extends Component {
     return (
       <div className='App'>
         <Header/>
-        <Switch>
-          <Route exact path={'/'} onClickBegin={this.handleClickBegin} component={Main} />
-          <Route path={'/about'} component={About} />
-          <Route path={'/story-form'} component={StoryForm} />
-          <Route path={'/story'} component={Story} />
-        </Switch>
+        <Route exact path={'/'} onClickBegin={this.handleClickBegin} component={Main} />
+        <Route path={'/about'} component={About} />
+        <Route path={'/story-form'} component={StoryForm} />
+        <Route path={'/story'} component={Story} />
       </div>
     );
   }

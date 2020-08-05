@@ -21,9 +21,9 @@ export default class Main extends Component {
         </div>
         <div className='container tutorial'>
           <h2 className='centered'>Instructions</h2>
-          <h3>Location</h3>
+          <h3>Loca</h3>
           <p>
-            Currently the location does not affect anything. In future versions,
+            Currently the loca does not affect anything. In future versions,
             this will change the difficulty of the adventure, and change which
             monsters you can meet. e.g. Vampires in the Castle, Zombies in the
             Graveyard, etc...

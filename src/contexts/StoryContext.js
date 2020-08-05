@@ -13,7 +13,7 @@ export const nullMonster = {
     damage_die: 0,
 }
 
-export const nullDungeonLocation = ''
+export const nullDungeonLoca = ''
 
 export const nullNumberOfEncounters = 0
 
@@ -21,20 +21,26 @@ export const nullCharName = ''
 
 export const nullCharClass = -1
 
+export const nullLocaFlavor = {}
+
 const StoryContext = React.createContext({
   char: nullChar,
   monster: nullMonster,
-  dungeonLocation: nullDungeonLocation,
+  dungeonLoca: nullDungeonLoca,
   numberOfEncounters: nullNumberOfEncounters,
   charName: nullCharName,
   charClass: nullCharClass,
+  locaFlavor: nullLocaFlavor,
   setError: () => {},
   clearError: () => {},
   setChar: () => {},
   clearChar: () => {},
   setMonster: () => {},
   clearMonster: () => {},
- 
+  setCharClass: () => {},
+  clearCharClass: () => {},
+  setLocaFlavor: () => {},
+  clearLocaFlavor: () => {}
 })
 
 export default StoryContext
@@ -43,10 +49,11 @@ export class StoryProvider extends Component {
   state = {
     char: nullChar,
     monster: nullMonster,
-    dungeonLocation: nullDungeonLocation,
+    dungeonLoca: nullDungeonLoca,
     numberOfEncounters: nullNumberOfEncounters,
     charName: nullCharName,
     charClass: nullCharClass,
+    locaFlavor: nullLocaFlavor,
     error: null,
   };
 
@@ -75,12 +82,12 @@ export class StoryProvider extends Component {
     this.setMonster(nullMonster)
   }
 
-  setDungeonLocation = dungeonLocation => {
-    this.setState({dungeonLocation})
+  setDungeonLoca = dungeonLoca => {
+    this.setState({dungeonLoca})
   }
 
-  clearDungeonLocation = () => {
-    this.DungeonLocation(nullDungeonLocation)
+  clearDungeonLoca = () => {
+    this.DungeonLoca(nullDungeonLoca)
   }
 
   setNumberOfEncounters = numberOfEncounters => {
@@ -107,15 +114,24 @@ export class StoryProvider extends Component {
     this.CharClass(nullCharClass)
   }
 
+  setLocaFlavor = locaFlavor => {
+    this.setState({locaFlavor})
+  }
+
+  clearLocaFlavor = () => {
+    this.LocaFlavor(nullLocaFlavor)
+  }
+
 
   render() {
     const value = {
       char: this.state.char,
       monster: this.state.monster,
-      dungeonLocation: this.state.dungeonLocation,
+      dungeonLoca: this.state.dungeonLoca,
       numberOfEncounters: this.state.numberOfEncounters,
       charName: this.state.charName,
       charClass: this.state.charClass,
+      locaFlavor: this.state.locaFlavor,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
@@ -123,14 +139,16 @@ export class StoryProvider extends Component {
       clearChar: this.clearChar,
       setMonster: this.setMonster,
       clearMonster: this.clearMonster,
-      setDungeonLocation: this.setDungeonLocation,
-      clearDungeonLocation: this.clearDungeonLocation,
+      setDungeonLoca: this.setDungeonLoca,
+      clearDungeonLoca: this.clearDungeonLoca,
       setNumberOfEncounters: this.setNumberOfEncounters,
       clearNumberOfEncounters: this.clearNumberOfEncounters,
       setCharName: this.setCharName,
       clearCharName: this.clearCharName,
       setCharClass: this.setCharClass,
       clearCharClass: this.clearCharClass,
+      setLocaFlavor: this.setLocaFlavor,
+      clearLocaFlavor: this.clearLocaFlavor,
     }
     return (
       <StoryContext.Provider value={value}>

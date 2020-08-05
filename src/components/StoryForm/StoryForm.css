@@ -1,9 +1,11 @@
-form {
-  display: table;
+fieldset {
+  display: flex;
+  min-inline-size: unset;
 }
-p {
-  display: table-row;
-  padding: 20px;
+form {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 label {
   display: table-cell;
@@ -11,10 +13,31 @@ label {
 input {
   display: table-cell;
 }
-.fieldset {
-    width: 50%;
+.button_bar {
+  display: flex;
+  flex-direction: column;
 }
-.form-buttons {
+button,
+input[type='submit'] {
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  width: 220px;
+  height: 53px;
+  background: url(../../img/next_button.png) no-repeat;
+}
+
+@media screen and (min-width: 1000px) {
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  .button_bar {
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
 }
