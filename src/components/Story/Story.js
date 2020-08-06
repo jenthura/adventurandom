@@ -20,7 +20,7 @@ export default class Story extends Component {
           .catch(this.context.setError)
 
         MonsterApiService.getMonster()
-          .then(monster => this.context.setMonster(monster[Math.floor(Math.random()*(monster.length))]))
+          .then(monster => this.context.setMonster(monster))
           .catch(error => console.log('error',error))
 
         LocaFlavorApiService.getLocaFlavor()
@@ -30,12 +30,16 @@ export default class Story extends Component {
 
     render() {
         const {locaFlavor, charName, dungeonLoca, char, monster, numberOfEncounters} = this.context
-        
+        const emptyArray = []
+        for (let i = 0; i < numberOfEncounters; i ++) {
+            emptyArray.push('count')
+        }
+
         return (
             <div className='container'>
                 <p>
                     You are <i>{charName}</i> the <i>{char.class_name}</i>. You venture into the <i>{dungeonLoca} {locaFlavor.loca_flavor_string}</i> to seek fortune and excitement!
-                    <Encounter numberOfEncounters={numberOfEncounters} char_attack={'Axe'} monster_hitpoints={monster.hitpoints} monster_name={monster.monster_name}/>
+                    {emptyArray.map(element => <Encounter char_attack={'Axe'} monster_hitpoints={monster.hitpoints} monster_name={monster.monster_name}/>)}
                     You finish the dungeon! You find {monster.hitpoints*10} gold coins!<br /><br />
                     <div className='centered'>
                         <Link to='/story-form'><img src={restart} alt='start_button'/></Link>

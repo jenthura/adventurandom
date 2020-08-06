@@ -32,7 +32,7 @@ export default class StoryForm extends Component {
           <fieldset>
             <legend>Customise your adventure!</legend>
             <form onSubmit={this.handleSubmit} id='storyForm'>
-              <label for='dungeonLoca'>Choose a loca </label>
+              <label for='dungeonLoca'>Choose a location</label>
               <select
                 id='dungeonLoca'
                 name='dungeonLoca'
@@ -56,6 +56,7 @@ export default class StoryForm extends Component {
               <label for='name'>Character Name</label>
               <input
                 type='text'
+
                 onChange={(e) => setCharName(e.target.value)}
                 required
               ></input>
@@ -73,10 +74,10 @@ export default class StoryForm extends Component {
                 <option value={3}>Wizard</option>
               </select>
               <div className='button_bar centered'>
+                <input type='submit' value='' />
                 <Link to='/'>
                   <img src={back} alt='back_button' />
                 </Link>
-                <input type='submit' value='' />
               </div>
             </form>
           </fieldset>
