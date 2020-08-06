@@ -30,6 +30,16 @@ export default class Story extends Component {
 
     render() {
         const {locaFlavor, charName, dungeonLoca, char, numberOfEncounters} = this.context
+        if (charName === '') {
+            return (
+                <div className='centered container'>
+                    Sorry, no data found.<br/><br/>
+                    <div className='centered'>
+                        <Link to='/story-form'><img src={restart} alt='start_button'/></Link>
+                    </div>
+                </div>
+            )
+        }
         const emptyArray = []
         for (let i = 0; i < numberOfEncounters; i ++) {
             emptyArray.push('count')
