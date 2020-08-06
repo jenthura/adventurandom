@@ -22,26 +22,24 @@ export default class Encounter extends Component {
 
   render() {
     const { char, monster } = this.context;
-    console.log(char.damage_die)
-    const charDamage = Math.floor(Math.random() * char.damage_die);
-    const monsterDamage = Math.floor(Math.random() * monster.damage_die);
-
-    console.log(monster.monster_hitpoints);
+    const monsterId = Math.floor(Math.random() * monster.length);
+    const charDamage = Math.floor(Math.random() * 7);
+    const monsterDamage = Math.floor(Math.random() * monster[monsterId].damage_die);
 
     return (
       <div className='encounter'>
-        A <i>{monster.monster_name}</i> pops out!
+        A <i>{monster[monsterId].monster_name}</i> pops out!
         <br />
-        You attack a <i>{monster.monster_name}</i> with your <i>{'Axe'}</i> for{' '}
+        You attack a <i>{monster[monsterId].monster_name}</i> with your <i>{char.has_spells ? 'Fire Bolt spell' : 'Greataxe'}</i> for{' '}
         {charDamage} damage!{' '}
-        {`It has ${monster.monster_hitpoints - charDamage} hitpoints remaining`}
+        {`It has ${monster[monsterId].hitpoints - charDamage} hitpoints remaining`}
         <br />
-        The <i>{monster.monster_name}</i> attacks you for {monsterDamage}{' '}
+        The <i>{monster[monsterId].monster_name}</i> attacks you for {monsterDamage}{' '}
         damage!
         <br />
-        You attack a <i>{monster.monster_name}</i> with your <i>{'Axe'}</i> for{' '}
+        You attack a <i>{monster[monsterId].monster_name}</i> with your <i>{char.has_spells ? 'Fire Bolt spell' : 'Greataxe'}</i> for{' '}
         {charDamage + 50} damage!{' '}
-        {['The ', <i>{monster.monster_name}</i>, ' dies horribly!']}
+        {['The ', <i>{monster[monsterId].monster_name}</i>, ' dies horribly!']}
         <br />
       </div>
     );

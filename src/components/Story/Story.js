@@ -29,7 +29,7 @@ export default class Story extends Component {
     }
 
     render() {
-        const {locaFlavor, charName, dungeonLoca, char, monster, numberOfEncounters} = this.context
+        const {locaFlavor, charName, dungeonLoca, char, numberOfEncounters} = this.context
         const emptyArray = []
         for (let i = 0; i < numberOfEncounters; i ++) {
             emptyArray.push('count')
@@ -38,9 +38,9 @@ export default class Story extends Component {
         return (
             <div className='container'>
                 <p>
-                    You are <i>{charName}</i> the <i>{char.class_name}</i>. You venture into the <i>{dungeonLoca} {locaFlavor.loca_flavor_string}</i> to seek fortune and excitement!
-                    {emptyArray.map(element => <Encounter char_attack={'Axe'} monster_hitpoints={monster.hitpoints} monster_name={monster.monster_name}/>)}
-                    You finish the dungeon! You find {monster.hitpoints*10} gold coins!<br /><br />
+                    You are <i>{charName}</i> the <i>{char.class_name}</i>. You venture into the <i>{dungeonLoca} {locaFlavor.location_flavor_string}</i> to seek fortune and excitement!
+                    {emptyArray.map(element => <Encounter/>)}
+                    You finish the dungeon! You find {numberOfEncounters*10} gold coins!<br /><br />
                     <div className='centered'>
                         <Link to='/story-form'><img src={restart} alt='start_button'/></Link>
                     </div>

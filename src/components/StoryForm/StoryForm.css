@@ -37,7 +37,7 @@ input[type='submit'] {
   }
   .button_bar {
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
   }
 }
