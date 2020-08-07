@@ -7,11 +7,11 @@ export const nullChar = {
   has_spells: false,
 }
 
-export const nullMonster = {
-    monster_name: '',
-    hitpoints: 0,
-    damage_die: 0,
-}
+export const nullMonster = [{
+  monster_name: '',
+  hitpoints: 0,
+  damage_die: 0,
+}]
 
 export const nullDungeonLoca = ''
 

@@ -7,13 +7,6 @@ import StoryContext from '../../contexts/StoryContext';
 export default class StoryForm extends Component {
   static contextType = StoryContext;
 
-  nextClickHandler = (event) => {
-    debugger;
-    event.preventDefault();
-    this.refs.storyForm_01.submit();
-    this.props.history.push('/story');
-  };
-
   handleSubmit = () => {
     this.props.history.push('/story');
   };
@@ -32,7 +25,7 @@ export default class StoryForm extends Component {
           <fieldset>
             <legend>Customise your adventure!</legend>
             <form onSubmit={this.handleSubmit} id='storyForm'>
-              <label for='dungeonLoca'>Choose a location</label>
+              <label htmlFor='dungeonLoca'>Choose a location</label>
               <select
                 id='dungeonLoca'
                 name='dungeonLoca'
@@ -53,14 +46,14 @@ export default class StoryForm extends Component {
                 onChange={(e) => setNumberOfEncounters(e.target.value)}
                 required
               ></input>
-              <label for='name'>Character Name</label>
+              <label htmlFor='name'>Character Name</label>
               <input
                 type='text'
 
                 onChange={(e) => setCharName(e.target.value)}
                 required
               ></input>
-              <label for='class'>Choose a class </label>
+              <label htmlFor='class'>Choose a class </label>
               <select
                 id='class'
                 name='class'

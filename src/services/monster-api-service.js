@@ -3,6 +3,7 @@ import config from '../config'
 const MonsterApiService = {
 
     getMonster() {
+        console.log(config.API_ENDPOINT)
         return fetch(`${config.API_ENDPOINT}/monster`)
         .then(res =>
             (!res.ok)
