@@ -23,6 +23,13 @@ export const nullCharClass = -1
 
 export const nullLocaFlavor = {}
 
+export const nullCharAttacks = [{
+  damage_type: '',
+  damage_die: 0,
+  is_spell: false,
+  attack_name: '',
+}]
+
 const StoryContext = React.createContext({
   char: nullChar,
   monster: nullMonster,
@@ -31,8 +38,11 @@ const StoryContext = React.createContext({
   charName: nullCharName,
   charClass: nullCharClass,
   locaFlavor: nullLocaFlavor,
+  charAttacks: nullCharAttacks,
+  isLoading: false,
   setError: () => {},
   clearError: () => {},
+  toggleIsLoading: () => {},
   setChar: () => {},
   clearChar: () => {},
   setMonster: () => {},
@@ -40,7 +50,9 @@ const StoryContext = React.createContext({
   setCharClass: () => {},
   clearCharClass: () => {},
   setLocaFlavor: () => {},
-  clearLocaFlavor: () => {}
+  clearLocaFlavor: () => {},
+  setCharAttacks: () => {},
+  clearCharAttacks: () => {},
 })
 
 export default StoryContext
@@ -54,6 +66,8 @@ export class StoryProvider extends Component {
     charName: nullCharName,
     charClass: nullCharClass,
     locaFlavor: nullLocaFlavor,
+    charAttacks: nullCharAttacks,
+    isLoading: true,
     error: null,
   };
 
@@ -122,6 +136,18 @@ export class StoryProvider extends Component {
     this.LocaFlavor(nullLocaFlavor)
   }
 
+  setCharAttacks = charAttacks => {
+    this.setState({charAttacks})
+  }
+
+  clearCharAttacks = () => {
+    this.CharAttacks(nullCharAttacks)
+  }
+
+  toggleIsLoading = () => {
+    this.setState({ isLoading: false })
+  }
+
 
   render() {
     const value = {
@@ -132,9 +158,12 @@ export class StoryProvider extends Component {
       charName: this.state.charName,
       charClass: this.state.charClass,
       locaFlavor: this.state.locaFlavor,
+      charAttacks: this.state.charAttacks,
+      isLoading: this.state.isLoading,
       error: this.state.error,
       setError: this.setError,
       clearError: this.clearError,
+      toggleIsLoading: this.toggleIsLoading,
       setChar: this.setChar,
       clearChar: this.clearChar,
       setMonster: this.setMonster,
@@ -149,6 +178,8 @@ export class StoryProvider extends Component {
       clearCharClass: this.clearCharClass,
       setLocaFlavor: this.setLocaFlavor,
       clearLocaFlavor: this.clearLocaFlavor,
+      setCharAttacks: this.setCharAttacks,
+      clearCharAttacks: this.clearCharAttacks,
     }
     return (
       <StoryContext.Provider value={value}>

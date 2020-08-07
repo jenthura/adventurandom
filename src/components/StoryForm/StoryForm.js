@@ -63,8 +63,17 @@ export default class StoryForm extends Component {
               >
                 <option></option>
                 <option value={1}>Barbarian</option>
-                <option value={2}>Monk</option>
-                <option value={3}>Wizard</option>
+                <option value={2}>Bard</option>
+                <option value={3}>Cleric</option>
+                <option value={4}>Druid</option>
+                <option value={5}>Fighter</option>
+                <option value={6}>Monk</option>
+                <option value={7}>Paladin</option>
+                <option value={8}>Ranger</option>
+                <option value={9}>Rogue</option>
+                <option value={10}>Sorcerer</option>
+                <option value={11}>Warlock</option>
+                <option value={12}>Wizard</option>
               </select>
               <div className='button_bar centered'>
                 <input type='submit' value='' />

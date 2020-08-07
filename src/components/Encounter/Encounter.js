@@ -10,44 +10,51 @@ export default class Encounter extends Component {
   componentDidMount() {
     MonsterApiService.getMonster()
       .then((monster) => this.context.setMonster(monster))
-      .catch((error) => console.log('error', error));
+      .catch((error) => console.log('GET monster error', error));
 
     CharApiService.getCharById(this.context.charClass)
       .then((char) => this.context.setChar(char))
-      .catch(this.context.setError);
+      .catch((error) => console.log('GET char error', error));
+
+    CharApiService.getCharAttacks(this.context.charClass)
+      .then((charAttacks) => this.context.setCharAttacks(charAttacks))
+      .then(this.context.toggleIsLoading())
+      .catch((error) => console.log('GET char attacks error', error))
+      
   }
 
   render() {
-    const { char, monster } = this.context;
-    console.log(monster)
-    if (monster[0].monster_name==='') {
+    const { char, monster, charAttacks, isLoading} = this.context;
+    if (isLoading === true) {
+      return 'Loading...'
+    }
+    if (monster[0].monster_name==='' || charAttacks[0].attack_name==='') {
       return 'No monster';
     }
 
     const monsterId = Math.floor(Math.random() * monster.length);
+    const attackId = Math.floor(Math.random() * charAttacks.length);
     const charDamage = Math.floor(Math.random() * 7);
-    const monsterDamage = !monster
-      ? Math.floor(Math.random() * monster[monsterId].damage_die)
-      : 0;
+    const monsterDamage = Math.floor(Math.random() * monster[monsterId].damage_die)
     
     return (
       <div className='encounter'>
-        A <i>{monster[monsterId].monster_name}</i> pops out!
+        A {monster[monsterId].monster_name} pops out!
         <br />
-        You attack a <i>{monster[monsterId].monster_name}</i> with your{' '}
-        <i>{char.has_spells ? 'Fire Bolt spell' : 'Greataxe'}</i> for{' '}
+        You attack a {monster[monsterId].monster_name} with your{' '}
+        {charAttacks[attackId].attack_name} for{' '}
         {charDamage} damage!{' '}
         {`It has ${
           monster[monsterId].hitpoints - charDamage
         } hitpoints remaining`}
         <br />
-        The <i>{monster[monsterId].monster_name}</i> attacks you for{' '}
+        The {monster[monsterId].monster_name} attacks you for{' '}
         {monsterDamage} damage!
         <br />
-        You attack a <i>{monster[monsterId].monster_name}</i> with your{' '}
-        <i>{char.has_spells ? 'Fire Bolt spell' : 'Greataxe'}</i> for{' '}
+        You attack a {monster[monsterId].monster_name} with your{' '}
+        {charAttacks[attackId].attack_name} for{' '}
         {charDamage + 50} damage!{' '}
-        {['The ', <i>{monster[monsterId].monster_name}</i>, ' dies horribly!']}
+        The {monster[monsterId].monster_name} dies horribly!
         <br />
       </div>
     );

@@ -9,7 +9,16 @@ const CharApiService = {
               ? res.json().then(e => Promise.reject(e))
               : res.json()
         )
-    }
+    },
+
+    getCharAttacks(id) {
+        return fetch(`${config.API_ENDPOINT}/char/${id}/attacks`)
+        .then(res =>
+            (!res.ok)
+              ? res.json().then(e => Promise.reject(e))
+              : res.json()
+        )
+    },
 }
 
 export default CharApiService;
