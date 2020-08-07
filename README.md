@@ -17,6 +17,8 @@ https://adventurandom.vercel.app/
 
 React
 
+Heroku
+
 PostgresQL
 
 javaScript
