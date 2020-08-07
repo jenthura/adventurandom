@@ -21,7 +21,6 @@ export default class Encounter extends Component {
     const { char, monster } = this.context;
     console.log(monster)
     if (monster[0].monster_name==='') {
-      console.log('No Monster')
       return 'No monster';
     }
 
