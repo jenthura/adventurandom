@@ -43,7 +43,9 @@ export default class Story extends Component {
         return (
             <div className='container'>
                 <p>
-                    You are {charName} the {char.class_name}. You venture into the "{dungeonLoca} {locaFlavor.location_flavor_string}" to seek fortune and excitement!
+                    <b>You are {charName} the {char.class_name}. You venture into the "<i>{dungeonLoca} {locaFlavor.location_flavor_string}</i>" to seek fortune and excitement! You enter the danger zone! And...</b>
+                    <br />
+                    <br />
                     {emptyArray.map(element => <Encounter/>)}
                     You reach the end of the {dungeonLoca}! You find {numberOfEncounters*10} gold coins!<br /><br />
                     <div className='centered'>

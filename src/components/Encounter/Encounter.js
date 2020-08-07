@@ -41,6 +41,7 @@ export default class Encounter extends Component {
       <div className='encounter'>
         A {monster[monsterId].monster_name} pops out!
         <br />
+        <br />
         You attack a {monster[monsterId].monster_name} with your{' '}
         {charAttacks[attackId].attack_name} for{' '}
         {charDamage} damage!{' '}
@@ -48,13 +49,16 @@ export default class Encounter extends Component {
           monster[monsterId].hitpoints - charDamage
         } hitpoints remaining`}
         <br />
+        <br />
         The {monster[monsterId].monster_name} attacks you for{' '}
         {monsterDamage} damage!
+        <br />
         <br />
         You attack a {monster[monsterId].monster_name} with your{' '}
         {charAttacks[attackId].attack_name} for{' '}
         {charDamage + 50} damage!{' '}
         The {monster[monsterId].monster_name} dies horribly!
+        <br />
         <br />
       </div>
     );
