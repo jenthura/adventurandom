@@ -29,7 +29,7 @@ export default class Encounter extends Component {
       return 'Loading...'
     }
     if (monster[0].monster_name==='' || charAttacks[0].attack_name==='') {
-      return 'No monster';
+      return 'Loading...';
     }
 
     const monsterId = Math.floor(Math.random() * monster.length);

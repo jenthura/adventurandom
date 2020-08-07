@@ -5,6 +5,7 @@ import StoryContext from '../../contexts/StoryContext'
 import Encounter from '../Encounter/Encounter'
 import { Link } from 'react-router-dom';
 import restart from '../../img/restart_button.png';
+import treasure from '../../img/treasure.jpg';
 
 export default class Story extends Component {
 
@@ -48,6 +49,7 @@ export default class Story extends Component {
                     <br />
                     {emptyArray.map(element => <Encounter/>)}
                     You reach the end of the {dungeonLoca}! You find {numberOfEncounters*10} gold coins!<br /><br />
+                    <img src={treasure} alt='A chest full of gold coins and loot!'/>
                     <div className='centered'>
                         <Link to='/story-form'><img src={restart} alt='start_button'/></Link>
                     </div>
