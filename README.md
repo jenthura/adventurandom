@@ -14,8 +14,11 @@ https://adventurandom.vercel.app/
 [Form](https://i.imgur.com/U0UUopz.png)
 
 #My tech stack:
+
 React
+
 PostgresQL
+
 javaScript
 
 #React components:
