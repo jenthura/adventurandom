@@ -31,3 +31,7 @@ body {
 .logo {
   width: 75%;
 }
+
+img {
+  max-width: 200px;
+}
