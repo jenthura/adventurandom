@@ -61,7 +61,7 @@ export default class Story extends Component {
 
     return (
       <div className='container'>
-        <p>
+        <div>
           <b>
             You are {charName} the {char.class_name}. You venture into the "
             <i>
@@ -71,6 +71,7 @@ export default class Story extends Component {
           </b>
           <br />
           <br />
+          {console.log(randomAttacks)}
           {randomMonsters.map((monster) => (
             <Encounter
               monsterHitpoints={monster.hitpoints}
@@ -97,7 +98,7 @@ export default class Story extends Component {
               <img src={restart} alt='start_button' />
             </Link>
           </div>
-        </p>
+        </div>
       </div>
     );
   }

@@ -30,6 +30,7 @@ body {
 
 .logo {
   width: 75%;
+  min-width: 220px;
 }
 
 img {
