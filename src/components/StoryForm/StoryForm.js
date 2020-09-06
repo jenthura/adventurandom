@@ -49,7 +49,6 @@ export default class StoryForm extends Component {
               <label htmlFor='name'>Character Name</label>
               <input
                 type='text'
-
                 onChange={(e) => setCharName(e.target.value)}
                 required
               ></input>
@@ -88,3 +87,31 @@ export default class StoryForm extends Component {
     );
   }
 }
+
+// {
+//   "history": {
+//     "length": 28,
+//     "action": "PUSH",
+//     "location": "{hash: \"\", key: \"tipq3j\", pathname: \"/story-form\", …}",
+//     "createHref": "ƒ createHref() {}",
+//     "push": "ƒ push() {}",
+//     "replace": "ƒ replace() {}",
+//     "go": "ƒ go() {}",
+//     "goBack": "ƒ goBack() {}",
+//     "goForward": "ƒ goForward() {}",
+//     "block": "ƒ block() {}",
+//     "listen": "ƒ listen() {}"
+//   },
+//   "location": {
+//     "pathname": "/story-form",
+//     "search": "",
+//     "hash": "",
+//     "key": "tipq3j"
+//   },
+//   "match": {
+//     "path": "/story-form",
+//     "url": "/story-form",
+//     "isExact": true,
+//     "params": "{}"
+//   }
+// }
