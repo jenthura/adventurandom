@@ -1,25 +1,25 @@
-import React, { Component } from 'react'
-import CharApiService from '../../services/char-api-service'
-import MonsterApiService from '../../services/monster-api-service'
-import LocaFlavorApiService from '../../services/location-api-service'
-import StoryContext from '../../contexts/StoryContext'
-import Encounter from '../Encounter/Encounter'
-import { Link } from 'react-router-dom'
-import restart from '../../img/restart_button.png'
-import treasure from '../../img/treasure.jpg'
+import React, { Component } from 'react';
+import CharApiService from '../../services/char-api-service';
+import MonsterApiService from '../../services/monster-api-service';
+import LocaFlavorApiService from '../../services/location-api-service';
+import StoryContext from '../../contexts/StoryContext';
+import Encounter from '../Encounter/Encounter';
+import { Link } from 'react-router-dom';
+import restart from '../../img/restart_button.png';
+import treasure from '../../img/treasure.jpg';
 
 export default class Story extends Component {
-  static contextType = StoryContext
+  static contextType = StoryContext;
 
   componentDidMount() {
-    const { charClass } = this.context
+    const { charClass } = this.context;
     CharApiService.getCharById(charClass)
       .then((char) => this.context.setChar(char))
-      .catch(this.context.setError)
+      .catch(this.context.setError);
 
     MonsterApiService.getMonster()
       .then((monster) => this.context.setMonster(monster))
-      .catch((error) => console.log('GET monster error', error))
+      .catch((error) => console.log('GET monster error', error));
 
     LocaFlavorApiService.getLocaFlavor()
       .then((locaFlavor) =>
@@ -27,12 +27,12 @@ export default class Story extends Component {
           locaFlavor[Math.floor(Math.random() * locaFlavor.length)]
         )
       )
-      .catch(this.context.setError)
+      .catch(this.context.setError);
 
     CharApiService.getCharAttacks(this.context.charClass)
       .then((charAttacks) => this.context.setCharAttacks(charAttacks))
       .then(this.context.toggleIsLoading())
-      .catch((error) => console.log('GET char attacks error', error))
+      .catch((error) => console.log('GET char attacks error', error));
   }
 
   render() {
@@ -44,19 +44,19 @@ export default class Story extends Component {
       charAttacks,
       numberOfEncounters,
       monster,
-    } = this.context
+    } = this.context;
     if (charName === '') {
-      this.props.history.push('/story-form')
+      this.props.history.push('/story-form');
     }
-    const randomMonsters = []
+    const randomMonsters = [];
     for (let i = 0; i < numberOfEncounters; i++) {
-      let randomMonsterId = Math.floor(Math.random() * monster.length)
-      randomMonsters.push(monster[randomMonsterId])
+      let randomMonsterId = Math.floor(Math.random() * monster.length);
+      randomMonsters.push(monster[randomMonsterId]);
     }
-    const randomAttacks = []
+    const randomAttacks = [];
     for (let i = 0; i < numberOfEncounters; i++) {
-      let randomAttackId = Math.floor(Math.random() * charAttacks.length)
-      randomAttacks.push(charAttacks[randomAttackId])
+      let randomAttackId = Math.floor(Math.random() * charAttacks.length);
+      randomAttacks.push(charAttacks[randomAttackId]);
     }
 
     return (
@@ -71,8 +71,9 @@ export default class Story extends Component {
           </b>
           <br />
           <br />
-          {randomMonsters.map((monster) => (
+          {randomMonsters.map((monster, index) => (
             <Encounter
+              key={index}
               monsterHitpoints={monster.hitpoints}
               monsterLength={monster.length}
               monsterName={monster.monster_name}
@@ -99,7 +100,7 @@ export default class Story extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 

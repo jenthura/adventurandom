@@ -7,7 +7,8 @@ import StoryContext from '../../contexts/StoryContext';
 export default class StoryForm extends Component {
   static contextType = StoryContext;
 
-  handleSubmit = () => {
+  handleSubmit = (e) => {
+    e.preventDefault();
     this.props.history.push('/story');
   };
 
