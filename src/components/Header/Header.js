@@ -7,7 +7,7 @@ export default class Header extends Component {
     return (
       <div className='container centered'>
         <Link to='/'>
-          <img classname='logo' src={logo} className='logo' alt='logo' />
+          <img src={logo} className='logo' alt='logo' />
         </Link>
       </div>
     );
