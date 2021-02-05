@@ -2,7 +2,7 @@
 
 This project was built by Chatchawan L Suwaratana for Thinkful a solo capstone project.
 
-This is the client for the adventurandom server
+This is the client for the adventurandom server. 
 It accepts user input and randomises an adventure story. Everytime you play it should be different!
 
 ## **Live app**
