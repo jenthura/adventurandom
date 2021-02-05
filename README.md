@@ -11,9 +11,9 @@ https://adventurandom.vercel.app/
 
 ## **Screenshots**
 
-(img/start-page.jpg)
+(img/start-page.png)
 
-(img/customize.jpg)
+(img/customize.png)
 
 ## **My tech stack**
 
