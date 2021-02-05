@@ -1,19 +1,21 @@
-#Adventurandom!
+## **Adventurandom!**
+
 This project was built by Chatchawan L Suwaratana for Thinkful a solo capstone project.
 
 This is the client for the adventurandom client
 It accepts user input and randomises an adventure story. Everytime you play it should be different!
 
-#Live app:
+## **Live app**
+
 https://adventurandom.vercel.app/
 
-#Screenshots:
+## **Screenshots**
 
-[Main](https://i.imgur.com/yzzYsZh.png)
+(img/start-page.jpg)
 
-[Form](https://i.imgur.com/U0UUopz.png)
+(img/customize.jpg)
 
-#My tech stack:
+## **My tech stack**
 
 React
 
@@ -23,7 +25,7 @@ PostgresQL
 
 javaScript
 
-#React components:
+## **React components**
 src/components/About/About.js
 -Shows about information, acknowledgements and links to my GitHub and Twitter.
 src/components/App/App.js
