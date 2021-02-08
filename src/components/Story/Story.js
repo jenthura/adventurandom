@@ -77,12 +77,12 @@ export default class Story extends Component {
               monsterHitpoints={monster.hitpoints}
               monsterLength={monster.length}
               monsterName={monster.monster_name}
-              attackName={randomAttacks.map((attack) => attack.attack_name)[0]}
+              attackName={randomAttacks.map((attack) => attack.attack_name)[index]}
               attackDamageDie={
-                randomAttacks.map((attack) => attack.damage_die)[0]
+                randomAttacks.map((attack) => attack.damage_die)[index]
               }
               attackDamageType={
-                randomAttacks.map((attack) => attack.damage_type)[0]
+                randomAttacks.map((attack) => attack.damage_type)[index]
               }
             />
           ))}
