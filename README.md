@@ -27,18 +27,31 @@ javaScript
 
 ## **React components**
 src/components/About/About.js
+
 -Shows about information, acknowledgements and links to my GitHub and Twitter.
+
 src/components/App/App.js
+
 -Main app housing all other components.
+
 src/components/Encounter/Encounter.js
+
 -Repeated component depending on how many encounters the user chooses.
+
 src/components/Header/Header.js
+
 -Header component appearing above all other components, contains logo that links to Main page.
+
 src/components/Header/Main.js
+
 -Home screen with links to begin app functions and instructions on how to play. Also has link to About page.
+
 src/components/Story/Story.js
+
 -Result of the app function. Big block of text listing all the Encounters taking place.
+
 src/components/StoryForm/StoryForm.js
+
 -Where the user enters their input. Takes Location, Number of encounters, Character name and Character class.
 
 ## **API Documentation**
